@@ -183,7 +183,7 @@ input[type="button"] img {
 	box-shadow:0 0 3px #b9b9bb;
 	-moz-box-shadow:0 0 3px #b9b9bb;
 	-webkit-box-shadow:0 0 3px #b9b9bb;
-	padding:15px;
+	padding: 15px 15px 0 15px;
 }
 
 .box.map {

@@ -2,32 +2,32 @@
 @charset 'utf-8';
 
 /**
- * Flexo CMS - Content Management System. <http://flexo.up.dn.ua>
+ * Paraline CMS - Content Management System. <http://paraline.ru>
  * Copyright (C) 2008 Maslakov Alexander <jmas.ukraine@gmail.com>
  * Copyright (C) 2008 Philippe Archambault <philippe.archambault@gmail.com>
  * Copyright (C) 2008 Martijn van der Kleijn <martijn.niji@gmail.com>
  *
- * This file is part of Flexo CMS.
+ * This file is part of Paraline CMS.
  *
- * Flexo CMS is free software: you can redistribute it and/or modify
+ * Paraline CMS is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Flexo CMS is distributed in the hope that it will be useful,
+ * Paraline CMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Flexo CMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Paraline CMS.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Flexo CMS has made an exception to the GNU General Public License for plugins.
+ * Paraline CMS has made an exception to the GNU General Public License for plugins.
  * See exception.txt for details and the full text.
  */
 
 /**
- * @package Flexo
+ * @package Paraline 
  * @subpackage themes.special
  *
  * @author Maslakov Alexandr <jmas.ukraine@gmail.com>
@@ -88,11 +88,11 @@ html[xmlns] .#layout {
 }
 
 #navigation a {
-	text-decoration:none;
+	text-decoration:underline
 }
 
 #navigation a:hover {
-	text-decoration:underline;
+	color:red;
 }
 
 #menu {
@@ -120,12 +120,11 @@ html[xmlns] .#layout {
 
 #menu span {
 	display:block;
-	line-height:30px;
-	padding-left:20px;
-	text-transform:uppercase;
-	color:#a3a3a3;
+	line-height:140%;
+	padding-left:5px;
+	color:#333;
 	background:url(menu-cat.gif) no-repeat;
-	font-size:70%;
+	font-size:1.2em;
 }
 
 #menu a {

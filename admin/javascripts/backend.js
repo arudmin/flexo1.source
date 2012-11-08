@@ -121,7 +121,7 @@ cms.filters.add = function( name, to_editor_callback, to_textarea_callback )
 {	
 	if( to_editor_callback == undefined || to_textarea_callback == undefined )
 	{
-		cms.error('System try to add filter without required callbacks.', name, to_editor_callback, to_textarea_callback);
+		frog.error('System try to add filter without required callbacks.', name, to_editor_callback, to_textarea_callback);
 		return;
 	}
 	
@@ -154,7 +154,6 @@ cms.filters.switchOn = function( textarea_id, filter )
 				catch(e)
 				{
 					//frog.error('Errors with filter switch on!', e);
-					cms.error('Errors with filter switch on!', e);
 				}
 				
 				break;
@@ -663,7 +662,7 @@ cms.init.add(['page_add', 'page_edit'], function()
 		// events
 		onSelect: function( dateText, inst )
 		{
-			inst.input.attr("value", dateText +' 00:00:00' );
+			inst.input.val( dateText +' 00:00:00' );
 		}
 	});
 	
@@ -937,6 +936,11 @@ cms.init.add(['user_add', 'user_edit'], function()
 // Run
 jQuery(document).ready(function()
 {
+	// Change textarea height on page edit page /////////
+	var hResult = $(window).height() - $('div#pageEditParts div.item').index() * 31 - 205 - 140;
+	$('div#pageEditPart-1 textarea#pageEditPartContent-0').animate({height:hResult}, 1000);
+    /////////////////////////////////////////////////////
+
 	if( $.browser.msie )
 		$('html:first').addClass('msie');
 	
@@ -953,6 +957,34 @@ jQuery(document).ready(function()
 	
 	// stylizate .map-items 
 	cms.cssZebraItems('.map-items .item');
+
+////////////////////////////////////////////////////////////////////////////	
+	// Custom admin area
+	$('#pageEditOptions h2')
+		.html('<span id="pageOptionsHeader" class="dashed">' + $('#pageEditOptions h2').text() + '</span>')
+		.append('<span style="display:none; float:right"><b>x</b></span>')
+		.click(function(){
+			$('#pageEditOptions p, #pageEditOptions h2>span:last').slideToggle(0);
+			if ($('#pageEditOptions').css('height') === '3px'){
+				$('#pageEditOptions').css('height','100%');
+			}
+			else{
+				$('#pageEditOptions').css('height','3px');
+			}
+		});
+
+	//Add show-hide buttons
+	$('.item-title')
+		.append("<span class='item-titleTrigger' style='cursor:pointer;font-size:.7em;border-bottom:1px dashed;color:grey'>свернуть</span>")
+		.append("<span class='item-titleTrigger' style='display:none;cursor:pointer;font-size:.7em;border-bottom:1px dashed'>развернуть</span>")
+		.find('span').click(function(){
+			$(this).parent().find('.item-titleTrigger').toggle()
+			$(this).parent().next().next().slideToggle()
+		});
+
+	// Hide not BODY (first in list) containers
+	$('.item-titleTrigger:visible').not(':first').click();
+////////////////////////////////////////////////////////////////////////////	
 });
 
 
