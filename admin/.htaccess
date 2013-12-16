@@ -1,0 +1,4 @@
+AuthType Basic   
+AuthName "Hello!" 
+AuthUserFile  /var/www/advusr/passwd/.htpasswd
+require valid-user 
